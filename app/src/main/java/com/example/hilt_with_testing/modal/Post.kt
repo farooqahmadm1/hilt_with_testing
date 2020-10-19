@@ -5,10 +5,10 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity
-data class UserResponse (
+data class Post (
     @PrimaryKey
     @SerializedName("id") val id : Int,
-    @SerializedName("name") var name: String,
-    @SerializedName("email") var email: String,
-    @SerializedName("website") val website: String
+    @SerializedName("userId") var userId : Int,
+    @SerializedName("title") val title : String,
+    @SerializedName("body") val body : String
 )

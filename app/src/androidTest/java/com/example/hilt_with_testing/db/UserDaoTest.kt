@@ -47,7 +47,7 @@ class UserDaoTest {
 
     @Test
     fun insertUserItem() = runBlockingTest {
-        val userItem = UserResponse(1,"farooq","Github","Allah is One")
+        val userItem = UserResponse(1,"farooq","Sincere@april.biz","hildegard.org")
         dao.insert(userItem)
         val job = launch {
             dao.getUsers().collect {
@@ -61,7 +61,7 @@ class UserDaoTest {
 
     @Test
     fun deleteUserItem() = runBlockingTest {
-        var userItem = UserResponse(1,"farooq","Github","Allah is One")
+        val userItem = UserResponse(1,"farooq","Sincere@april.biz","hildegard.org")
         dao.insert(userItem)
         dao.delete(userItem)
         val job = launch {
@@ -75,9 +75,9 @@ class UserDaoTest {
 
     @Test
     fun updateUserItem() = runBlockingTest {
-        var userItem = UserResponse(1,"farooq","Github","Allah is One")
+        val userItem = UserResponse(1,"farooq","Sincere@april.biz","hildegard.org")
         dao.insert(userItem)
-        userItem.title = "Ali"
+        userItem.name = "Ali"
         dao.update(userItem)
         val job = launch {
             dao.getUsers().collect {
@@ -85,6 +85,6 @@ class UserDaoTest {
             }
         }
         job.cancel()
-        assertThat(userItem.title).isEqualTo(userList[0].title)
+        assertThat(userItem.name).isEqualTo(userList[0].name)
     }
 }

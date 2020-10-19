@@ -15,4 +15,7 @@ interface RestApiServices {
 
     @GET("posts")
     fun getPostLists(): Flow<List<UserResponse>>
+
+    @GET("users")
+    fun getUsers() : Flow<List<UserResponse>>
 }
