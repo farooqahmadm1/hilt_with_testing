@@ -22,7 +22,6 @@ class AppModule{
         return "It's some String!"
     }
 
-
     @Singleton
     @Provides
     fun provideRetrofit(client: OkHttpClient): RestApiServices = Retrofit.Builder()
